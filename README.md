@@ -1,5 +1,5 @@
 ```
 git init
-git remote add origin git@github.com:mr-kenhoff/test.git
+git remote add origin git@github.com:mr-kenhoff/.dotfiles.git
 git pull
 ```
