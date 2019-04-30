@@ -1,5 +1,10 @@
-```
-git init
-git remote add origin git@github.com:mr-kenhoff/.dotfiles.git
-git pull
-```
+
+
+
+# Base install
+
+dunst xautolock i3lock-fancy mopidy ncmpcpp
+
+
+### AUR
+mopidy-spotify
