@@ -1,7 +1,7 @@
 set nocompatible
 
 syntax on
-set number	
+set number relativenumber
 set linebreak	
 set showbreak=+++ 	
 set textwidth=100	

@@ -14,7 +14,6 @@ gaps inner 10
 gaps outer 0
 smart_gaps on
 
-
 #################################################
 # Shortcuts
 #################################################
@@ -24,6 +23,7 @@ bindsym $mod+r exec st ranger
 bindsym $mod+p exec st python3
 bindsym $mod+n exec st nmtui
 bindsym $mod+Shift+p exec passmenu
+bindsym $mod+m exec st ncmpcpp
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -131,7 +131,10 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec --no-startup-id ~/.config/polybar/launch.sh
 
 exec --no-startup-id "compton -b --config ~/.config/compton/compton.conf"
-exec_always --no-startup-id "wal -i ~/Pictures/Wallpapers/meh.ro,12348_4.jpg"
+exec --no-startup-id "mopidy"
+exec_always --no-startup-id "wal -i /usr/share/backgrounds/gnome/SeaSunset.jpg"
+
+exec --no-startup-id xautolock -detectsleep -time 5 -bell 0 -locker "i3lock-fancy" -notify 30 -notifier "notify-send -u critical -t 5000 -- 'LOCKING screen in 30 seconds'"
