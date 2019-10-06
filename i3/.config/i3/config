@@ -1,6 +1,7 @@
 #################################################
 # General i3 settings
 #################################################
+
 set $mod Mod4
 floating_modifier $mod
 
@@ -17,18 +18,25 @@ smart_gaps on
 #################################################
 # Shortcuts
 #################################################
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec st
 bindsym $mod+f exec firefox
 bindsym $mod+r exec st ranger
-bindsym $mod+p exec st python3
-bindsym $mod+n exec st nmtui
-bindsym $mod+Shift+p exec passmenu
+bindsym $mod+Shift+p exec st python3
+bindsym $mod+Shift+n exec st nmtui
+bindsym $mod+n exec nautilus
+bindsym $mod+p exec keepassxc
 bindsym $mod+m exec st ncmpcpp
+bindsym $mod+Esc i3lock-fancy
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id rofi -show drun -theme theme.rasi 
+
+# Audio shortcuts
+bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec amixer set Master 5%- unmute
+bindsym XF86AudioMute exec amixer set Master nmute
 
 #################################################
 # Window manipulation
@@ -129,12 +137,13 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "~/.config/rofi/scripts/powermenu.sh"
 
 exec --no-startup-id ~/.config/polybar/launch.sh
 
-exec --no-startup-id "compton -b --config ~/.config/compton/compton.conf"
-exec --no-startup-id "mopidy"
-exec_always --no-startup-id "wal -i /usr/share/backgrounds/gnome/SeaSunset.jpg"
+exec_always --no-startup-id "wal -i Pictures/Wallpapers/desolatelandscape.jpg"
+exec--no-startup-id udiskie --tray --no-automount
+exec_always --no-startup-id compton 
 
 exec --no-startup-id xautolock -detectsleep -time 5 -bell 0 -locker "i3lock-fancy" -notify 30 -notifier "notify-send -u critical -t 5000 -- 'LOCKING screen in 30 seconds'"
+

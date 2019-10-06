@@ -25,3 +25,5 @@ set ruler
  
 set undolevels=1000	
 set backspace=indent,eol,start	
+
+map <C-n> :NERDTreeToggle<CR>
